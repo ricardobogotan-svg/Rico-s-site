@@ -368,51 +368,62 @@ STEPS ↓
 }
 
 
+/* =====================
+   STEPS (DESKTOP)
+===================== */
+
 #steps .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-#steps .image-block {
+.steps__content {
+  width: 50%;
+  max-width: 480px;
+}
+
+.steps__image {
   width: 50%;
 }
 
-#steps .text-block {
-  width: 50%;
+.steps__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.steps {
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.steps {
-  margin-top: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
 .step {
   display: flex;
   align-items: flex-start;
+  gap: 12px;
 }
 
 .step__number {
   font-weight: 700;
-  color: var(--gray);
-  font-size: 1.3rem;
-  margin-right: 14px;
+  font-size: 1.1rem;
+  color: #4a5568;
 }
 
-.step__content h3 {
-  font-weight: 700;
+.step__text h3 {
   font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
-.step__content p {
+.step__text p {
   font-size: 0.9rem;
   color: #4a5568;
 }
+
 
 
 /* 
@@ -486,13 +497,14 @@ PRICING ↓
 .plans {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;      /* centers the row */
+  gap: 16px;                    /* space between cards */
   margin-top: 40px;
 }
 
 .plan {
-  width: calc(100% / 3);
-  display: flex;
-  flex-direction: column;
+  flex: 1 1 260px;              /* flexible cards, min width ~260px */
+  max-width: 320px;
   background: #fff;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
@@ -500,15 +512,11 @@ PRICING ↓
   text-align: center;
 }
 
-.plan + .plan {
-  margin-left: 16px;
-}
-
 .plan h3 {
   font-size: 0.9rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gray);
+  color: #a0aec0;
   margin-bottom: 10px;
 }
 
@@ -519,7 +527,7 @@ PRICING ↓
 
 .plan__cycle {
   font-size: 0.8rem;
-  color: var(--gray);
+  color: #a0aec0;
   margin-bottom: 20px;
 }
 
@@ -553,6 +561,7 @@ PRICING ↓
 .plan--featured .btn:hover {
   background: #edf2ff;
 }
+
 
 /* 
 
@@ -777,6 +786,8 @@ MOBILE RESPONSIVENESS ↓
     width: 50%;
   }
 }
+
+
 
 @media (max-width: 768px) {
   .row,
