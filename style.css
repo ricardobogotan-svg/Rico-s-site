@@ -49,6 +49,13 @@ button {
   padding: 0 32px;
 }
 
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px; /* This provides the "breathing room" Frank is looking for */
+}
+
 .row {
   display: flex;
   align-items: center;
@@ -338,12 +345,22 @@ header {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 8px;
+  text-align:left;
 }
 
 .feature__para {
   color: var(--muted);
   line-height: 1.7;
   font-size: 14px;
+  text-align:left;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 /* QUALITY */
@@ -730,10 +747,6 @@ header {
 .plan--highlight {
   transform: translateY(-12px);
   z-index: 2;
-}
-
-.plan--highlight .plan__top,
-.plan--highlight .plan__middle {
   background: linear-gradient(180deg, #667eea, #5a67d8);
 }
 
@@ -1181,6 +1194,51 @@ footer {
   }
 }
 
+/* --- Quality Section Styles --- */
+
+#quality .row {
+  display: flex;
+  flex-direction: column; /* Stacks vertically on mobile */
+  align-items: center;    /* Centers items for mobile */
+  gap: 40px;              /* Adds space between text and image */
+  width: 100%;
+}
+
+.quality__description {
+  width: 100%;
+  text-align: center;     /* Centers text for mobile */
+}
+
+.quality__img--wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.quality__img {
+  width: 100%;            
+  max-width: 500px;       
+  height: auto;
+}
+
+/* --- Desktop Responsiveness (Tablet & Up) --- */
+@media (min-width: 768px) {
+  #quality .row {
+    flex-direction: row;        
+    justify-content: space-between;
+    text-align: left;          
+  }
+
+  .quality__description {
+    width: 50%;                 
+    text-align: left;
+  }
+
+  .quality__img--wrapper {
+    width: 45%;                 
+  }
+}
+
 @media (max-width: 768px) {
   .section__title {
     font-size: 36px;
@@ -1225,3 +1283,5 @@ footer {
     gap: 22px;
   }
 }
+
+
