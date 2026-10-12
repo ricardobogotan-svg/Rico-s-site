@@ -1,0 +1,419 @@
+* {
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*, :after, :before {
+  box-sizing: inherit;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1a1a2e;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.app-body {
+  display: flex;
+  flex: 1 1 0%;
+}
+
+/* Flexbox Layout Utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header & Desktop Navigation */
+.navbar {
+  width: 100%;
+  padding: 18px 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f5;
+  position: relative;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50% 0 50%;
+  background: linear-gradient(135deg, #e91e63, #00bcd4);
+  display: inline-block;
+}
+
+.logo-text {
+  font-size: 26px;
+  font-weight: 800;
+  color: #3b2875;
+  letter-spacing: -0.5px;
+}
+
+.links {
+  display: flex;
+  gap: 28px;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333333;
+  transition: color 0.2s ease;
+}
+
+.link:hover,
+.router-link-exact-active,
+.router-link-active {
+  color: rgb(96, 48, 177);
+}
+
+.btn-contact {
+  text-decoration: none;
+  background-color: rgb(96, 48, 177);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 24px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-contact:hover {
+  background-color: #4a26c4;
+}
+
+/* Mobile Navigation Drawer & Trigger */
+#phone-nav {
+  position: relative;
+}
+
+.bento-menu {
+  display: none;
+  grid-template-columns: repeat(3, 6px);
+  grid-gap: 4px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.bento-menu div {
+  width: 6px;
+  height: 6px;
+  background-color: #3b2875;
+  border-radius: 2px;
+}
+
+.phone-nav-drawer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 1000;
+}
+
+.close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.close-btn::before,
+.close-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 2.5px;
+  background-color: #3b2875;
+  border-radius: 2px;
+}
+
+.close-btn::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-btn::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.showMenu {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 28px;
+}
+
+.showMenu .link {
+  font-size: 20px;
+}
+
+/* Landing Page Section */
+#landing-page {
+  display: flex;
+  width: 100%;
+  padding-top: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-inner {
+  position: relative;
+  min-height: 520px;
+}
+
+.hero-text-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 32px;
+  z-index: 10;
+  background-color: #ffffff;
+}
+
+/* Keyframe Animations */
+.fade-wrapper {
+  width: 100%;
+  opacity: 0;
+  animation-name: heroFadeIn;
+  animation-duration: 1500ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+.fade-title {
+  animation-delay: 300ms;
+}
+
+.fade-subtitle {
+  animation-delay: 600ms;
+}
+
+.fade-search {
+  animation-delay: 1100ms;
+}
+
+@keyframes heroFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#landing-page h1 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #3b2875;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 18px;
+}
+
+#landing-page h2 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #0f172a;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+#landing-page .highlight {
+  color: rgb(96, 48, 177);
+}
+
+/* Search Form */
+.input-wrapper {
+  align-items: center;
+  border: 1.5px solid #2d3142;
+  border-radius: 40px;
+  padding: 6px 8px 6px 24px;
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.input-wrapper input {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  width: 100%;
+  color: #333333;
+}
+
+.input-wrapper input::placeholder {
+  color: #8c909e;
+}
+
+.input-wrapper button.not-loading {
+  background-color: rgb(96, 48, 177);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.input-wrapper button.not-loading:hover {
+  background-color: #4a26c4;
+}
+
+/* Building Graphics */
+.building {
+  width: 100%;
+  max-width: 1100px;
+  display: block;
+  margin: 20px auto 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Animated Car */
+.car-wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  transform: translateX(100vw);
+  transition: transform 2.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.car {
+  position: relative;
+  width: 220px;
+}
+
+.car .blinker {
+  width: 100%;
+  display: block;
+}
+
+.car .wheel {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #222;
+  bottom: 0;
+}
+
+.car .wheel1 {
+  left: 32px;
+}
+
+.car .wheel2 {
+  right: 32px;
+}
+
+/* Font Awesome Utilities & Screen Reader Accessibility */
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: #fff;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 820px) {
+  .links {
+    display: none;
+  }
+
+  .bento-menu {
+    display: grid;
+  }
+
+  #landing-page h1 {
+    font-size: 34px;
+  }
+
+  #landing-page h2 {
+    font-size: 16px;
+  }
+
+  .input-wrapper {
+    max-width: 90%;
+  }
+}
